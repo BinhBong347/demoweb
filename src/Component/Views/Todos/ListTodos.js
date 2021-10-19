@@ -11,7 +11,8 @@ constructor(props) {
             {id:"todo1", tiltle:"Doing homeword"},
             {id:"todo2", tiltle:"Doing123"},
             {id:"todo3", tiltle:"Doing "}
-        ]
+        ],
+        editTodo: ""
     }
 }
 
@@ -23,28 +24,45 @@ addNewtodo = (todo) => {
     //     listTodos: currenListtodo
     // })
     this.setState({listTodos: [...this.state.listTodos, todo]})
-}
-render() {
-    let {listTodos} = this.state;
-    return (
-        <div className="container">
-            <AddTodo addNewtodo={this.addNewtodo}/>
-            <div className="list-todo-content">
-                {listTodos && listTodos.length > 0 &&
-                listTodos.map((item, index) => {
-                    return (
-                        <div className="todo-child" key ={item.id}>
-                        <span> {index +1} -- {item.tiltle}</span>
-                        <button className="edit">Edit</button>
-                        <button className="dele">Delete</button>
-                    </div>
-                    )
-                })
-                }
-               
+    }
+    // DELETE
+    handleDele = (todo) => {
+        let currenTodo = this.state.listTodos
+
+        currenTodo = currenTodo.filter((item) => item.id != todo.id);
+
+        this.setState({
+            listTodos: currenTodo
+        })
+    }
+
+    // EDIT
+        handleEdit = (todo) => {
+            alert("Phần này tìm hiểu thêm...")
+        }
+    render() {
+        let {listTodos} = this.state;
+        return (
+            <div className="container">
+                <AddTodo addNewtodo={this.addNewtodo}/>
+                <div className="list-todo-content">
+                    {listTodos && listTodos.length > 0 &&
+                    listTodos.map((item, index) => {
+                        return (
+                            <div className="todo-child" key ={item.id}>
+                            <span> {index +1} -- {item.tiltle}</span>
+                            <button className="edit"
+                            onClick={() => this.handleEdit(item)}>Edit</button>
+                            <button className="dele" 
+                            onClick={() => this.handleDele(item)}>Delete</button>
+                        </div>
+                        )
+                    })
+                    }
+                
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 
 
