@@ -43,25 +43,28 @@ addNewtodo = (todo) => {
     render() {
         let {listTodos} = this.state;
         return (
-            <div className="container">
-                <AddTodo addNewtodo={this.addNewtodo}/>
-                <div className="list-todo-content">
-                    {listTodos && listTodos.length > 0 &&
-                    listTodos.map((item, index) => {
-                        return (
-                            <div className="todo-child" key ={item.id}>
-                            <span> {index +1} -- {item.tiltle}</span>
-                            <button className="edit"
-                            onClick={() => this.handleEdit(item)}>Edit</button>
-                            <button className="dele" 
-                            onClick={() => this.handleDele(item)}>Delete</button>
-                        </div>
-                        )
-                    })
-                    }
-                
+            <>
+            <p>Chào mừng đến với Trái Đất đáng yêu nhất quả đất !!</p>
+                <div className="container">
+                    <AddTodo addNewtodo={this.addNewtodo}/>
+                    <div className="list-todo-content">
+                        {listTodos && listTodos.length > 0 &&
+                        listTodos.map((item, index) => {
+                            return (
+                                <div className="todo-child" key ={item.id}>
+                                <span> {index +1} -- {item.tiltle}</span>
+                                <button className="edit"
+                                onClick={() => this.handleEdit(item)}>Edit</button>
+                                <button className="dele" 
+                                onClick={() => this.handleDele(item)}>Delete</button>
+                            </div>
+                            )
+                        })
+                        }
+                    
+                    </div>
                 </div>
-            </div>
+            </>
         )
 }
 
