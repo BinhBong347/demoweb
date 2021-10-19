@@ -6,7 +6,7 @@ class Mytest extends Component {
 constructor(props) {
     super(props)
 
-    this.state= {
+    this.state= { 
         fname: "",
         lname:"",
         arr: [

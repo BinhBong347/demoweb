@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { withRouter } from "react-router";
 import Color from "../HOC/Color";
+import logo from "../../../assets/images/anh 1.jpg"
 
 class Home extends Component {
 
@@ -10,9 +11,12 @@ class Home extends Component {
     //     }, 3000)
     // }
     render() {
-        console.log(this.props)
+        
         return (
-            <div>HOME PAGE</div>
+            <>
+                <div>HOME PAGE</div>
+                <img src={logo} alt={"anh"} />
+            </>
         )
     }
 }

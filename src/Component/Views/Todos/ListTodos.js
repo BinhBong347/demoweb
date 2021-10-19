@@ -29,7 +29,7 @@ addNewtodo = (todo) => {
     handleDele = (todo) => {
         let currenTodo = this.state.listTodos
 
-        currenTodo = currenTodo.filter((item) => item.id != todo.id);
+        currenTodo = currenTodo.filter((item) => item.id !== todo.id);
 
         this.setState({
             listTodos: currenTodo

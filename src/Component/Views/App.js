@@ -9,6 +9,8 @@ import {
   Switch,
   Route
 } from "react-router-dom";
+import ListUser from './User/ListUser';
+import DetailUser from './User/DetailUser';
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
           </Route>
           <Route path="/about">
             <Mytest/>
+          </Route>
+          <Route exact path="/user">
+            <ListUser/>
+          </Route>
+          <Route path="/user/:id" exact>
+            <DetailUser/>
           </Route>
         </Switch>
         </header>
