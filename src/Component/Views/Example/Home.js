@@ -18,6 +18,10 @@ class Home extends Component {
         // this.props.deleteRedux(user1);
         this.props.deleteRedux(user1);
     }
+    // Cái này để THÊM DỮ LIỆU
+    handleCreateItem = () => {
+        this.props.addItem();
+    }
     render() {
         console.log(this.props.dataRedux);
         let listUser = this.props.dataRedux;
@@ -35,6 +39,7 @@ class Home extends Component {
                             </div>
                         )
                     })}
+                    <button onClick={() => this.handleCreateItem()}>Thêm</button>
                 </div>
             </>
         )
@@ -49,7 +54,8 @@ const mapStateToProps = (state) => {
 // Sử dụng 1 cái của REDUX dispart
 const mapDistpatch = (dispatch) => {
     return {
-        deleteRedux: (userdelete) => dispatch({type: 'DELETE_USER', payload: userdelete})
+        deleteRedux: (userdelete) => dispatch({type: 'DELETE_USER', payload: userdelete}),
+        addItem: () => dispatch({type: 'CREATE_USER'})
     }
 }
 export default connect(mapStateToProps, mapDistpatch)(Color(Home));

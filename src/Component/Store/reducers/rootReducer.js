@@ -17,11 +17,22 @@ const rootReduce = (state = initState, action) => {
 
       let user = state.user
         user = user.filter((item) => item.id !== action.payload.id) 
-        
+
       return {
           ...state, user
-      }
+      };
 
+      case "CREATE_USER":
+          let id = Math.floor(Math.random() * 10000);
+          let user123 = {
+              id: id,
+              name: `random - ${id}`
+          }
+          return {
+              ...state, user: [...state.user, user123]
+          }
+
+        
        default:
         return state
     }
