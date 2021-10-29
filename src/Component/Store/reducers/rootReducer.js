@@ -1,4 +1,3 @@
-
 const initState = {
     user: [
         {id: 1, name: "Binh"},
